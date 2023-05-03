@@ -7,7 +7,7 @@
 
 import Foundation
 
-class WeatherDataDTO: Codable {
+class WeatherDataDTO: Decodable {
         let now: Int
         let nowDt: String
         let info: Info
@@ -26,7 +26,7 @@ class WeatherDataDTO: Codable {
     }
 
     // MARK: - Fact
-    struct Fact: Codable {
+    struct Fact: Decodable {
         let obsTime, uptime: Int?
         let temp, feelsLike: Int
         let icon: Icon
@@ -74,7 +74,7 @@ class WeatherDataDTO: Codable {
         }
     }
 
-    enum Condition: String, Codable {
+    enum Condition: String, Decodable {
         case clear = "clear"
         case cloudy = "cloudy"
         case lightRain = "light-rain"
@@ -82,7 +82,7 @@ class WeatherDataDTO: Codable {
         case partlyCloudy = "partly-cloudy"
     }
 
-    enum WindDirEnum: String, Codable {
+    enum WindDirEnum: String, Decodable {
         case n = "n"
         case nw = "nw"
         case s = "s"
@@ -90,7 +90,7 @@ class WeatherDataDTO: Codable {
         case w = "w"
     }
 
-    enum Icon: String, Codable {
+    enum Icon: String, Decodable{
         case bknD = "bkn_d"
         case bknN = "bkn_n"
         case ovc = "ovc"
@@ -100,7 +100,7 @@ class WeatherDataDTO: Codable {
     }
 
     // MARK: - Forecast
-    struct Forecast: Codable {
+    struct Forecast: Decodable {
         let date: String
         let dateTs, week: Int
         let sunrise, sunset, riseBegin, setEnd: String
@@ -122,7 +122,7 @@ class WeatherDataDTO: Codable {
         }
     }
 
-struct Hour: Codable {
+struct Hour: Decodable{
     let hour: String
     let temp: Int
     
@@ -135,13 +135,13 @@ struct Hour: Codable {
 
 
     // MARK: - Biomet
-    struct Biomet: Codable {
+    struct Biomet: Decodable {
         let index: Int
         let condition: String
     }
 
     // MARK: - Parts
-    struct Parts: Codable {
+    struct Parts: Decodable {
         let day, dayShort, nightShort, evening: Day
         let night, morning: Day
 
@@ -154,7 +154,7 @@ struct Hour: Codable {
     }
 
     // MARK: - Day
-    struct Day: Codable {
+    struct Day: Decodable {
         let source: String
         let tempMin, tempAvg, tempMax: Int?
         let windSpeed, windGust: Double
@@ -201,24 +201,24 @@ struct Hour: Codable {
         }
     }
 
-    enum PurpleDaytime: String, Codable {
+    enum PurpleDaytime: String, Decodable {
         case d = "d"
         case n = "n"
     }
 
     // MARK: - GeoObject
-    struct GeoObject: Codable {
+    struct GeoObject: Decodable {
         let district, locality, province, country: Country
     }
 
     // MARK: - Country
-    struct Country: Codable {
+    struct Country: Decodable {
         let id: Int
         let name: String
     }
 
     // MARK: - Info
-    struct Info: Codable {
+    struct Info: Decodable {
         let n: Bool
         let geoid: Int
         let url: String
@@ -240,14 +240,14 @@ struct Hour: Codable {
     }
 
     // MARK: - Tzinfo
-    struct Tzinfo: Codable {
+    struct Tzinfo: Decodable {
         let name, abbr: String
         let dst: Bool
         let offset: Int
     }
 
     // MARK: - Yesterday
-    struct Yesterday: Codable {
+    struct Yesterday: Decodable {
         let temp: Int
     }
 

@@ -6,8 +6,6 @@ import Foundation
 import UIKit
 
 class WeatherViewController: UIViewController {
-    
-    var weatherView = WeatherView(image: <#T##UIImage#>, name: <#T##String#>, temp: <#T##String#>, humidity: <#T##String#>, uv: <#T##String#>, rain: <#T##String#>, pressure: <#T##String#>, sunset: <#T##String#>, sunrise: <#T##String#>)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,12 +13,15 @@ class WeatherViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+//        view.addSubview(WeatherView(image: <#T##UIImage##UIKit.UIImage#>, name: <#T##String##Swift.String#>, temp: <#T##String##Swift.String#>,
+//                        humidity: <#T##String##Swift.String#>, uv: <#T##String##Swift.String#>, rain: <#T##String##Swift.String#>, pressure: <#T##String##Swift.String#>,
+//                        sunset: <#T##String##Swift.String#>, sunrise: <#T##String##Swift.String#>))
     }
 }
 
 extension WeatherViewController {
     func setupSubview() {
-        self.view.addSubview(weatherView)
-        weatherView.bounds = view.bounds
+
+
     }
 }

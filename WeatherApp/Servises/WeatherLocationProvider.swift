@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import CoreLocation
 
 class WeatherLocationProvider {
-    
+
 }

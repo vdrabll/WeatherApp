@@ -7,19 +7,25 @@
 
 import Foundation
 
-class WeatherNetworkServices {
+class WeatherNetworkServices: NerworkServicesProtocol {
+//    var locationProvider: WeatherLocationProvider?
     private enum Constants {
-        static let url = String( "https://api.weather.yandex.ru/v2/forecast?lat=%s&lon=%s&lang=ru_RU&limit=3&hours=true&extra=true")
+        static let url = String( """
+                                 https://api.weather.yandex.ru/v2/
+                                 forecast?lat=%s&lon=%s&lang=ru_RU&limit=3&hours=true&extra=true
+                                 """)
         static let key = "efb61685-c9ea-4e32-8ec7-13d14891d8c5"
         static let fieldName = "X-Yandex-API-Key"
     }
     
     init() {
-        
+//        self.locationProvider = WeatherLocationProvider()
     }
     
     func getWeatherData(complitionHandler: @escaping (WeatherDataDTO) -> ()) {
-        var request = URLRequest(url: URL(string: String(format: Constants.url, "", ""))!)
+        let lat = "53.195"
+        let lon = "45.017"
+        var request = URLRequest(url: URL(string: String(format: Constants.url, lat, lon))!)
         request.addValue(Constants.key, forHTTPHeaderField: Constants.fieldName)
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in

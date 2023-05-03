@@ -9,17 +9,12 @@ import Foundation
 import UIKit
 
 class WeatherView: UIView {
-    var weatherIcon: UIImageView = {
-        var image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
-    }()
-    
     var weatherLable = WeatherLocationLable()
     var weatherInfo =  WeatherInfoView()
     var weathetForcast = weatherForcastView()
-    
-    
+     var weatherIcon = UIImageView()
+
+
     init(image: UIImage, name: String, temp: String, humidity: String,
          uv: String, rain: String, pressure: String, sunset: String, sunrise: String) {
         super.init(frame: .zero)
