@@ -11,28 +11,34 @@ import Charts
 import UIKit
 
 class weatherForcastView: UIView {
-    
+    private enum Constants {
+        static let textSize: CGFloat = 15
+        static let textFont = "Poppins-SemiBold"
+        static let sectionNameText = "Погода на сегодня"
+        static  let sunsetTimeText =  "Время заката"
+        static  let sunriseTimeText =  "Время восхода"
+    }
    private var sectionNameLable : UILabel = {
         var lable = UILabel()
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.text = "Погода на сегодня"
-        lable.font = UIFont(name: "Poppins-SemiBold", size: 15)
+        lable.text = Constants.sectionNameText
+        lable.font = UIFont(name:Constants.textFont , size: Constants.textSize)
         return lable
     }()
     
     var sunsetTimeLable: UILabel = {
          var lable = UILabel()
          lable.translatesAutoresizingMaskIntoConstraints = false
-         lable.text = "Время заката"
-         lable.font = UIFont(name: "Poppins-SemiBold", size: 15)
+         lable.text = Constants.sunsetTimeText
+         lable.font = UIFont(name: Constants.textFont, size: Constants.textSize)
          return lable
      }()
     
     var sunriseTimeLable : UILabel = {
          var lable = UILabel()
          lable.translatesAutoresizingMaskIntoConstraints = false
-         lable.text = "Время восхода"
-         lable.font = UIFont(name: "Poppins-SemiBold", size: 15)
+         lable.text = Constants.sunriseTimeText
+         lable.font = UIFont(name: Constants.textFont, size: Constants.textSize)
          return lable
      }()
     
@@ -55,11 +61,10 @@ private extension weatherForcastView {
         sectionNameLable.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12 ).isActive = true
         
         sunsetTimeLable.widthAnchor.constraint(equalToConstant: 109).isActive = true
-        
         sunsetTimeLable.heightAnchor.constraint(equalToConstant: 15).isActive = true
-        
         sunsetTimeLable.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 17).isActive = true
         sunsetTimeLable.topAnchor.constraint(equalTo: topAnchor, constant: 180).isActive = true
+        
         sunriseTimeLable.widthAnchor.constraint(equalToConstant: 139).isActive = true
         sunriseTimeLable.heightAnchor.constraint(equalToConstant: 15).isActive = true
         sunriseTimeLable.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true

@@ -9,14 +9,16 @@ class WeatherPresenter: WeatherPresenterProtocol {
     var networkService: NerworkServicesProtocol?
     var view: WeatherMainViewProtocol?
 
-    init(networkService: NerworkServicesProtocol,view: WeatherMainViewProtocol ) {
-        self.networkService = networkService
+    init(view: WeatherMainViewProtocol ) {
         self.view = view
+        self.networkService = WeatherNetworkServices()
     }
-
+    
+    
     func sendForcastData(complitionHandler: @escaping (ForcastDataDTO) -> ()) {
         networkService?.getWeatherData { dto in
-            var forcast: ForcastDataDTO = ForcastDataDTO(name:String() ,
+            var forcast = ForcastDataDTO(icon: String(dto.fact.icon),
+                    name:String(dto.info.tzinfo.name) ,
                     temp: String(dto.fact.temp),
                     humidity: String(dto.fact.humidity),
                     uv: String(dto.fact.uvIndex),

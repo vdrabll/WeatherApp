@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		5160C6892A01965300D17F30 /* WeatherDataDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5160C6882A01965300D17F30 /* WeatherDataDTO.swift */; };
 		5160C68C2A019B3200D17F30 /* WeatherNetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5160C68B2A019B3200D17F30 /* WeatherNetworkServices.swift */; };
 		5160C68E2A02290700D17F30 /* WeatherLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5160C68D2A02290700D17F30 /* WeatherLocationProvider.swift */; };
+		5160C6912A02962E00D17F30 /* SVGKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5160C6902A02962E00D17F30 /* SVGKit */; };
+		5160C6932A02962E00D17F30 /* SVGKitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5160C6922A02962E00D17F30 /* SVGKitSwift */; };
 		B4DB8105BBBD1585396DD00B /* ForcastDataDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DB897BF8249E8B2056A0CD /* ForcastDataDTO.swift */; };
 		B4DB821A57DC599A9D7EA441 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DB8C1C018A26F9A14E7057 /* WeatherViewController.swift */; };
 		B4DB8410A2BCC8985EF4E327 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DB8A2121E1654DCF3A4237 /* AppDelegate.swift */; };
@@ -53,6 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5160C6932A02962E00D17F30 /* SVGKitSwift in Frameworks */,
+				5160C6912A02962E00D17F30 /* SVGKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +66,7 @@
 		5155B9702A010D05000A0B94 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				5155B96A2A00FAF8000A0B94 /* WeatherView.swift */,
 				5155B96C2A0102D8000A0B94 /* WeatherLocationLable.swift */,
 				5155B96E2A010B91000A0B94 /* WeatherInfoView.swift */,
 				5155B9712A0118AC000A0B94 /* weatherForcastView.swift */,
@@ -142,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				B4DB8C1C018A26F9A14E7057 /* WeatherViewController.swift */,
-				5155B96A2A00FAF8000A0B94 /* WeatherView.swift */,
 				5155B9702A010D05000A0B94 /* Subviews */,
 			);
 			path = Screen;
@@ -172,6 +176,10 @@
 			dependencies = (
 			);
 			name = WeatherApp;
+			packageProductDependencies = (
+				5160C6902A02962E00D17F30 /* SVGKit */,
+				5160C6922A02962E00D17F30 /* SVGKitSwift */,
+			);
 			productName = WeatherApp;
 			productReference = B4DB8D738F3134900B85B5BF /* WeatherApp.app */;
 			productType = "com.apple.product-type.application";
@@ -193,6 +201,9 @@
 				Base,
 			);
 			mainGroup = B4DB80FB5C053FAA1957D5A9;
+			packageReferences = (
+				5160C68F2A02962D00D17F30 /* XCRemoteSwiftPackageReference "SVGKit" */,
+			);
 			productRefGroup = B4DB8EB3F1632DA48C3E70C7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -252,7 +263,10 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ViktoriyaFedosova.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -274,7 +288,10 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ViktoriyaFedosova.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -332,7 +349,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -419,6 +437,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5160C68F2A02962D00D17F30 /* XCRemoteSwiftPackageReference "SVGKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SVGKit/SVGKit.git";
+			requirement = {
+				branch = 3.x;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5160C6902A02962E00D17F30 /* SVGKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5160C68F2A02962D00D17F30 /* XCRemoteSwiftPackageReference "SVGKit" */;
+			productName = SVGKit;
+		};
+		5160C6922A02962E00D17F30 /* SVGKitSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5160C68F2A02962D00D17F30 /* XCRemoteSwiftPackageReference "SVGKit" */;
+			productName = SVGKitSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B4DB8582954E9433E57561F2 /* Project object */;
 }

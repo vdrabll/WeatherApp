@@ -6,6 +6,7 @@ import Foundation
 import UIKit
 
 struct ForcastDataDTO: Decodable {
+        let icon: String
         let name: String
         let temp: String
         let humidity: String
@@ -16,6 +17,7 @@ struct ForcastDataDTO: Decodable {
         let sunrise: String
 
     enum CodingKeys: String, CodingKey {
+        case icon
         case name
         case temp
         case humidity
