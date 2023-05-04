@@ -11,32 +11,40 @@ import UIKit
 class WeatherInfoView: UIStackView {
     var weatherHumidity: UILabel = {
         var lable = UILabel()
+        lable.numberOfLines = 2
+        lable.textAlignment = .center
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.text = "Влаж. /n"
+        lable.text = "Влаж. \n"
         lable.font = UIFont(name: "Poppins-SemiBold", size: 15)
         return lable
     }()
     
     var weatherUV: UILabel = {
         var lable = UILabel()
+        lable.numberOfLines = 2
+        lable.textAlignment = .center
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.text = "УФ /n"
+        lable.text = "УФ \n"
         lable.font = UIFont(name: "Poppins-SemiBold", size: 15)
         return lable
     }()
     
     var weatherRain: UILabel = {
         var lable = UILabel()
+        lable.numberOfLines = 2
+        lable.textAlignment = .center
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.text = "Дождь % /n"
+        lable.text = "Дождь % \n"
         lable.font = UIFont(name: "Poppins-SemiBold", size: 15)
         return lable
     }()
     
     var weatherPressure: UILabel = {
         var lable = UILabel()
+        lable.numberOfLines = 2
+        lable.textAlignment = .center
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.text = "Давление /n"
+        lable.text = "Давление \n"
         lable.font = UIFont(name: "Poppins-SemiBold", size: 15)
         return lable
     }()

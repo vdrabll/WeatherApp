@@ -7,7 +7,7 @@
 
 import Foundation
 
-class WeatherDataDTO: Decodable {
+class WeatherDataDTO: Codable {
         let now: Int
         let nowDt: String
         let info: Info
@@ -26,19 +26,17 @@ class WeatherDataDTO: Decodable {
     }
 
     // MARK: - Fact
-    struct Fact: Decodable {
+    struct Fact: Codable {
         let obsTime, uptime: Int?
         let temp, feelsLike: Int
-        let icon: Icon
+        let icon: String
         let condition: Condition
         let cloudness: Double
         let precType, precProb: Int
         let precStrength: Double
         let isThunder: Bool
         let windSpeed: Double
-        let windDir: WindDirEnum
         let pressureMm, pressurePa, humidity: Int
-        let daytime: WindDirEnum?
         let polar: Bool?
         let season, source: String?
         let soilMoisture: Double
@@ -59,10 +57,9 @@ class WeatherDataDTO: Decodable {
             case precStrength = "prec_strength"
             case isThunder = "is_thunder"
             case windSpeed = "wind_speed"
-            case windDir = "wind_dir"
             case pressureMm = "pressure_mm"
             case pressurePa = "pressure_pa"
-            case humidity, daytime, polar, season, source
+            case humidity, polar, season, source
             case soilMoisture = "soil_moisture"
             case soilTemp = "soil_temp"
             case uvIndex = "uv_index"
@@ -74,7 +71,7 @@ class WeatherDataDTO: Decodable {
         }
     }
 
-    enum Condition: String, Decodable {
+    enum Condition: String, Codable {
         case clear = "clear"
         case cloudy = "cloudy"
         case lightRain = "light-rain"
@@ -82,15 +79,8 @@ class WeatherDataDTO: Decodable {
         case partlyCloudy = "partly-cloudy"
     }
 
-    enum WindDirEnum: String, Decodable {
-        case n = "n"
-        case nw = "nw"
-        case s = "s"
-        case sw = "sw"
-        case w = "w"
-    }
 
-    enum Icon: String, Decodable{
+    enum Icon: String, Codable{
         case bknD = "bkn_d"
         case bknN = "bkn_n"
         case ovc = "ovc"
@@ -100,13 +90,12 @@ class WeatherDataDTO: Decodable {
     }
 
     // MARK: - Forecast
-    struct Forecast: Decodable {
+    struct Forecast: Codable {
         let date: String
         let dateTs, week: Int
         let sunrise, sunset, riseBegin, setEnd: String
         let moonCode: Int
         let moonText: String
-        let parts: Parts
         let hours: [Hour]
         let biomet: Biomet
 
@@ -118,11 +107,11 @@ class WeatherDataDTO: Decodable {
             case setEnd = "set_end"
             case moonCode = "moon_code"
             case moonText = "moon_text"
-            case parts, hours, biomet
+            case hours, biomet
         }
     }
 
-struct Hour: Decodable{
+struct Hour: Codable{
     let hour: String
     let temp: Int
     
@@ -133,15 +122,12 @@ struct Hour: Decodable{
     
 }
 
-
-    // MARK: - Biomet
-    struct Biomet: Decodable {
+    struct Biomet: Codable {
         let index: Int
         let condition: String
     }
 
-    // MARK: - Parts
-    struct Parts: Decodable {
+    struct Parts: Codable {
         let day, dayShort, nightShort, evening: Day
         let night, morning: Day
 
@@ -153,19 +139,18 @@ struct Hour: Decodable{
         }
     }
 
-    // MARK: - Day
-    struct Day: Decodable {
+
+    struct Day: Codable {
         let source: String
         let tempMin, tempAvg, tempMax: Int?
         let windSpeed, windGust: Double
-        let windDir: WindDirEnum
         let pressureMm, pressurePa, humidity, soilTemp: Int
         let soilMoisture, precMm: Double
         let precProb, precPeriod: Int
         let cloudness: Double
         let precType: Int
         let precStrength: Double
-        let icon: Icon
+        let icon: String
         let condition: Condition
         let uvIndex, feelsLike: Int
         let daytime: PurpleDaytime
@@ -180,7 +165,6 @@ struct Hour: Decodable{
             case tempMax = "temp_max"
             case windSpeed = "wind_speed"
             case windGust = "wind_gust"
-            case windDir = "wind_dir"
             case pressureMm = "pressure_mm"
             case pressurePa = "pressure_pa"
             case humidity
@@ -201,24 +185,23 @@ struct Hour: Decodable{
         }
     }
 
-    enum PurpleDaytime: String, Decodable {
+    enum PurpleDaytime: String, Codable {
         case d = "d"
         case n = "n"
     }
 
-    // MARK: - GeoObject
-    struct GeoObject: Decodable {
+
+    struct GeoObject: Codable {
         let district, locality, province, country: Country
     }
 
-    // MARK: - Country
-    struct Country: Decodable {
+    struct Country: Codable {
         let id: Int
         let name: String
     }
 
-    // MARK: - Info
-    struct Info: Decodable {
+
+    struct Info: Codable {
         let n: Bool
         let geoid: Int
         let url: String
@@ -239,15 +222,15 @@ struct Hour: Decodable{
         }
     }
 
-    // MARK: - Tzinfo
-    struct Tzinfo: Decodable {
+
+    struct Tzinfo:Codable {
         let name, abbr: String
         let dst: Bool
         let offset: Int
     }
 
-    // MARK: - Yesterday
-    struct Yesterday: Decodable {
+
+    struct Yesterday: Codable{
         let temp: Int
     }
 

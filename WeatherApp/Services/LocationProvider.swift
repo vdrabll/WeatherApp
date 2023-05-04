@@ -1,5 +1,5 @@
 
-//  WeatherLocationProvider.swift
+//  LocationProvider.swift
 //  WeatherApp
 //
 //  Created by Виктория Федосова on 03.05.2023.
@@ -29,6 +29,10 @@ class WeatherLocationProvider {
 
     func stopUpdatingLocation() {
         self.locationManager?.stopUpdatingLocation()
+    }
+
+    func getLocation() {
+
     }
 }
 
