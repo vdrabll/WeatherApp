@@ -8,8 +8,9 @@ import SVGKit
 
 class WeatherViewController: UIViewController, WeatherMainViewProtocol {
     
+    
+    
     var presenter: WeatherPresenterProtocol?
-    //    var weatherView: WeatherView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +23,11 @@ class WeatherViewController: UIViewController, WeatherMainViewProtocol {
         presenter?.sendForcastData(complitionHandler:  {  dto in
             let url = URL(string: String(format: "https://yastatic.net/weather/i/icons/funky/dark/%@.svg", dto.icon))
             let image = SVGKImage(contentsOf: url).uiImage
+            let firstIndex = dto.name.firstIndex(of: "/")
             
             DispatchQueue.main.async {
                 var weatherView = WeatherView(image: image!,
-                                              name: dto.name,
+                                              name: dto.name, 
                                               temp: dto.temp,
                                               humidity: dto.humidity,
                                               uv: dto.uv,

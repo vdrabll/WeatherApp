@@ -11,17 +11,17 @@ import UIKit
 class WeatherLocationLable: UIView {
     var locationName: UILabel = {
         var lable = UILabel()
-        lable.backgroundColor = .blue
+        lable.textAlignment = .center
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.font = UIFont(name: "Poppins-SemiBold", size: 30 )
+        lable.font = UIFont(name: "TimesNewRomanPSMT", size: 38 )
         return lable
     }()
     
     var locationTempruture: UILabel = {
         var lable = UILabel()
-        lable.backgroundColor = .blue
+        lable.textAlignment = .center
+        lable.font = UIFont(name: "TimesNewRomanPSMT", size: 100)
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.font = UIFont(name: "Poppins-SemiBold", size: 30)
         return lable
     }()
     
@@ -40,7 +40,6 @@ private extension WeatherLocationLable {
     func setupSubviews() {
         addSubview(locationName)
         addSubview(locationTempruture)
-        self.backgroundColor = .darkGray
         
         locationName.widthAnchor.constraint(equalToConstant: 190).isActive = true
         locationName.heightAnchor.constraint(equalToConstant: 40).isActive = true
@@ -48,7 +47,10 @@ private extension WeatherLocationLable {
         locationName.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         locationName.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         
-        locationTempruture.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        locationTempruture.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        locationTempruture.topAnchor.constraint(equalTo: locationName.bottomAnchor).isActive = true
+        locationTempruture.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        locationTempruture.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+        locationTempruture.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
+
     }
 }

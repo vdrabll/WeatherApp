@@ -17,6 +17,7 @@
 		5160C68E2A02290700D17F30 /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5160C68D2A02290700D17F30 /* LocationProvider.swift */; };
 		5160C6912A02962E00D17F30 /* SVGKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5160C6902A02962E00D17F30 /* SVGKit */; };
 		5160C6932A02962E00D17F30 /* SVGKitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5160C6922A02962E00D17F30 /* SVGKitSwift */; };
+		51D2475A2A040CF30061C0D6 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 51D247592A040CF30061C0D6 /* Charts */; };
 		B4DB8105BBBD1585396DD00B /* ForcastDataDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DB897BF8249E8B2056A0CD /* ForcastDataDTO.swift */; };
 		B4DB821A57DC599A9D7EA441 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DB8C1C018A26F9A14E7057 /* WeatherViewController.swift */; };
 		B4DB8410A2BCC8985EF4E327 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DB8A2121E1654DCF3A4237 /* AppDelegate.swift */; };
@@ -56,6 +57,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5160C6932A02962E00D17F30 /* SVGKitSwift in Frameworks */,
+				51D2475A2A040CF30061C0D6 /* Charts in Frameworks */,
 				5160C6912A02962E00D17F30 /* SVGKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,6 +181,7 @@
 			packageProductDependencies = (
 				5160C6902A02962E00D17F30 /* SVGKit */,
 				5160C6922A02962E00D17F30 /* SVGKitSwift */,
+				51D247592A040CF30061C0D6 /* Charts */,
 			);
 			productName = WeatherApp;
 			productReference = B4DB8D738F3134900B85B5BF /* WeatherApp.app */;
@@ -203,6 +206,7 @@
 			mainGroup = B4DB80FB5C053FAA1957D5A9;
 			packageReferences = (
 				5160C68F2A02962D00D17F30 /* XCRemoteSwiftPackageReference "SVGKit" */,
+				51D247582A040CF20061C0D6 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = B4DB8EB3F1632DA48C3E70C7 /* Products */;
 			projectDirPath = "";
@@ -447,6 +451,14 @@
 				kind = branch;
 			};
 		};
+		51D247582A040CF20061C0D6 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -459,6 +471,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5160C68F2A02962D00D17F30 /* XCRemoteSwiftPackageReference "SVGKit" */;
 			productName = SVGKitSwift;
+		};
+		51D247592A040CF30061C0D6 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 51D247582A040CF20061C0D6 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
