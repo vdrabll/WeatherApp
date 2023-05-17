@@ -8,31 +8,29 @@
 import Foundation
 import CoreLocation
 
-class WeatherLocationProvider {
-
+class LocationManagerProvider {
     private var locationManager: CLLocationManager?
-
-
-    init(delegate: AppDelegate) {
+    
+    init(delegate: CLLocationManagerDelegate) {
         self.locationManager = CLLocationManager()
         self.locationManager?.delegate = delegate
-        // config lcation manager
+        self.locationManager?.desiredAccuracy = kCLLocationAccuracyKilometer
     }
-
+    
     public func requestLocation() {
         self.locationManager?.requestLocation()
     }
-
+    
     public func requestAuthorization() {
         self.locationManager?.requestAlwaysAuthorization()
     }
-
+    
     func stopUpdatingLocation() {
         self.locationManager?.stopUpdatingLocation()
     }
-
-    func getLocation() {
-
+    
+    func getLocation() -> CLLocation? {
+        self.locationManager!.location
     }
 }
 

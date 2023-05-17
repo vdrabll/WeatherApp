@@ -7,16 +7,16 @@
 
 import Foundation
 import UIKit
+import Charts
 
 class WeatherView: UIView {
     var weatherLable = WeatherLocationLable()
     var weatherInfo =  WeatherInfoView()
     var weathetForcast = weatherForcastView()
-     var weatherIcon = UIImageView()
-
-
+    var weatherIcon = UIImageView()
+    
     init(image: UIImage, name: String, temp: String, humidity: String,
-         uv: String, rain: String, pressure: String, sunset: String, sunrise: String) {
+         uv: String, rain: String, pressure: String, sunset: String, sunrise: String, entry: [ChartDataEntry]) {
         super.init(frame: .zero)
         setupSubviews()
         backgroundColor = .white
@@ -29,6 +29,8 @@ class WeatherView: UIView {
         weatherInfo.weatherPressure.text! += pressure
         weathetForcast.sunriseTimeLable.text! += sunrise
         weathetForcast.sunsetTimeLable.text! += sunset
+        weathetForcast.forcastChart.data = BarChartData(dataSet: BarChartDataSet(entries: entry))
+        
     }
     
     required init?(coder: NSCoder) {
@@ -41,6 +43,7 @@ private extension WeatherView {
         addSubview(weatherIcon)
         addSubview(weatherLable)
         addSubview(weatherInfo)
+        addSubview(weathetForcast)
         
         weatherIcon.translatesAutoresizingMaskIntoConstraints = false
         weatherIcon.widthAnchor.constraint(equalToConstant: 147).isActive = true

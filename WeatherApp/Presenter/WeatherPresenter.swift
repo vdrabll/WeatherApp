@@ -3,14 +3,25 @@
 //
 
 import Foundation
+import Charts
 
 class WeatherPresenter: WeatherPresenterProtocol {
-    var networkService = WeatherNetworkServices()
-    func sendForcastData(complitionHandler: @escaping (ForcastDataDTO) -> ()) {
-        networkService.getWeatherData { dto in
-            complitionHandler(ForcastDataDTO.fromWeatherDto(dto: dto))
-        }
+    private let networkService: NetworkService
+    
+    init() {
+        self.networkService = NetworkService()
     }
-
-
+    
+    func sendForcastData(complitionHandler: @escaping (ForcastDataDTO, [BarChartDataEntry]) -> (), location: Location) {
+        networkService.getWeatherData(complitionHandler: { dto in
+            let xy = dto.forecasts[0].hours.map { perHour in
+                self.toXY(perHour: perHour)
+            }
+            complitionHandler(ForcastDataDTO.fromWeatherDto(dto: dto), xy)
+        }, location: location)
+    }
+    
+    private func toXY(perHour: Hour) -> BarChartDataEntry {
+        return BarChartDataEntry(x: Double(perHour.hour)!, y: Double(perHour.temp))
+    }
 }

@@ -3,7 +3,8 @@
 //
 
 import Foundation
+import Charts
 
 protocol WeatherPresenterProtocol {
-    func sendForcastData(complitionHandler: @escaping (ForcastDataDTO) -> ())
+    func sendForcastData(complitionHandler: @escaping (ForcastDataDTO, [BarChartDataEntry]) -> (), location: Location)
 }

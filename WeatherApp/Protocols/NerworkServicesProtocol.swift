@@ -5,5 +5,5 @@
 import Foundation
 
 protocol NerworkServicesProtocol {
-    func getWeatherData(complitionHandler: @escaping (WeatherDataDTO) -> ())
+    func getWeatherData(complitionHandler: @escaping (WeatherDataDTO) -> (), location: Location)
 }

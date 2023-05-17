@@ -29,9 +29,11 @@ struct ForcastDataDTO: Codable {
     }
 
     static func fromWeatherDto(dto: WeatherDataDTO) -> ForcastDataDTO {
+        let index = dto.info.tzinfo.name.lastIndex(of: "/")!
+        let rightPosition = dto.info.tzinfo.name.index(after: index)
         return ForcastDataDTO(
                 icon: String(dto.fact.icon),
-                name: String(dto.info.tzinfo.name),
+                name: String(dto.info.tzinfo.name[rightPosition...]),
                 temp: String(dto.fact.temp),
                 humidity: String(dto.fact.humidity),
                 uv: String(dto.fact.uvIndex),

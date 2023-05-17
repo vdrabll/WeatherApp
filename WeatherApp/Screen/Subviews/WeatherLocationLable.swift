@@ -9,18 +9,25 @@ import Foundation
 import UIKit
 
 class WeatherLocationLable: UIView {
+    private enum Constants {
+        static let font = "TimesNewRomanPSMT"
+        static let tempSize: CGFloat = 100
+        static let nameSize: CGFloat = 38
+        
+    }
+    
     var locationName: UILabel = {
         var lable = UILabel()
         lable.textAlignment = .center
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.font = UIFont(name: "TimesNewRomanPSMT", size: 38 )
+        lable.font = UIFont(name: Constants.font, size: Constants.nameSize)
         return lable
     }()
     
     var locationTempruture: UILabel = {
         var lable = UILabel()
         lable.textAlignment = .center
-        lable.font = UIFont(name: "TimesNewRomanPSMT", size: 100)
+        lable.font = UIFont(name: Constants.font, size: Constants.tempSize)
         lable.translatesAutoresizingMaskIntoConstraints = false
         return lable
     }()
@@ -33,7 +40,6 @@ class WeatherLocationLable: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 
 private extension WeatherLocationLable {
@@ -51,6 +57,5 @@ private extension WeatherLocationLable {
         locationTempruture.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         locationTempruture.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
         locationTempruture.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
-
     }
 }

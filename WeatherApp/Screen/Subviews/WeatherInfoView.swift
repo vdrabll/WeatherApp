@@ -9,43 +9,55 @@ import Foundation
 import UIKit
 
 class WeatherInfoView: UIStackView {
+    
+    private enum Constants {
+        static let font =  "Poppins-SemiBold"
+        static let number = 2
+        static let size: CGFloat = 15
+        static let humidity = "Влаж. \n"
+        static let uv = "УФ \n"
+        static let rain = "Дождь % \n"
+        static let pressure = "Давление \n"
+        
+    }
+    
     var weatherHumidity: UILabel = {
         var lable = UILabel()
-        lable.numberOfLines = 2
+        lable.numberOfLines = Constants.number
         lable.textAlignment = .center
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.text = "Влаж. \n"
-        lable.font = UIFont(name: "Poppins-SemiBold", size: 15)
+        lable.text = Constants.humidity
+        lable.font = UIFont(name: Constants.font,size: Constants.size)
         return lable
     }()
     
     var weatherUV: UILabel = {
         var lable = UILabel()
-        lable.numberOfLines = 2
+        lable.numberOfLines = Constants.number
         lable.textAlignment = .center
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.text = "УФ \n"
-        lable.font = UIFont(name: "Poppins-SemiBold", size: 15)
+        lable.text = Constants.uv
+        lable.font = UIFont(name: Constants.font,size: Constants.size)
         return lable
     }()
     
     var weatherRain: UILabel = {
         var lable = UILabel()
-        lable.numberOfLines = 2
+        lable.numberOfLines = Constants.number
         lable.textAlignment = .center
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.text = "Дождь % \n"
-        lable.font = UIFont(name: "Poppins-SemiBold", size: 15)
+        lable.text = Constants.rain
+        lable.font = UIFont(name: Constants.font,size: Constants.size)
         return lable
     }()
     
     var weatherPressure: UILabel = {
         var lable = UILabel()
-        lable.numberOfLines = 2
+        lable.numberOfLines = Constants.number
         lable.textAlignment = .center
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.text = "Давление \n"
-        lable.font = UIFont(name: "Poppins-SemiBold", size: 15)
+        lable.text = Constants.pressure
+        lable.font = UIFont(name: Constants.font,size: Constants.size)
         return lable
     }()
     
