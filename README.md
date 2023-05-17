@@ -7,4 +7,5 @@ By doing this project i improve my skills at:
 - Networking
 - Core Location 
 - Swift Charts
- ![screen.png](Images/screen.png)
+ 
+ <img src="Images/screen.png"  width="60%" height="30%">
