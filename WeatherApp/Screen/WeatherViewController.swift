@@ -13,6 +13,7 @@ class WeatherViewController: UIViewController {
     
     private enum Constants {
         static let stringFormat = "https://yastatic.net/weather/i/icons/funky/dark/%@.svg"
+        static let defoultLocation = Location(lat: 55.7522, lon: 37.6156)
     }
     
     private var presenter: WeatherPresenterProtocol?
@@ -60,6 +61,8 @@ extension WeatherViewController: CLLocationManagerDelegate {
         if !locations.isEmpty {
             let location = Location(lat: locations[0].coordinate.latitude, lon: locations[0].coordinate.longitude)
             presenter!.sendForcastData(complitionHandler: self.addWeatherView, location: location)
+        } else {
+            presenter!.sendForcastData(complitionHandler: self.addWeatherView, location: Constants.defoultLocation)
         }
     }
     
