@@ -7,4 +7,4 @@ By doing this project i improve my skills at:
 - Networking
 - Core Location 
 - Swift Charts
- ![ Simulator Screen Shot - iPhone 14 Pro - 2023-05-17 at 23.35.56.png]( Simulator Screen Shot - iPhone 14 Pro - 2023-05-17 at 23.35.56.png)
+ ![screen.png](Images/screen.png)
