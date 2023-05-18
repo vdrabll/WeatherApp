@@ -9,7 +9,7 @@ import SVGKit
 import CoreLocation
 import Charts
 
-class WeatherViewController: UIViewController {
+final class WeatherViewController: UIViewController {
     
     private enum Constants {
         static let stringFormat = "https://yastatic.net/weather/i/icons/funky/dark/%@.svg"
@@ -60,8 +60,8 @@ extension WeatherViewController: CLLocationManagerDelegate {
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if !locations.isEmpty {
             let location = Location(lat: locations[0].coordinate.latitude, lon: locations[0].coordinate.longitude)
-            presenter!.sendForcastData(complitionHandler: self.addWeatherView, location: location)
-        } else {
+            presenter!.sendForcastData(complitionHandler: self.addWeatherView, location: location)}
+        else {
             presenter!.sendForcastData(complitionHandler: self.addWeatherView, location: Constants.defoultLocation)
         }
     }

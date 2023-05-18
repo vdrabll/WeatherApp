@@ -7,7 +7,7 @@
 
 import Foundation
 
-class WeatherDataDTO: Codable {
+final class WeatherDataDTO: Codable {
     let now: Int
     let nowDt: String
     let info: Info

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class WeatherLocationLable: UIView {
+final class WeatherLocationLable: UIView {
     private enum Constants {
         static let font = "TimesNewRomanPSMT"
         static let tempSize: CGFloat = 100

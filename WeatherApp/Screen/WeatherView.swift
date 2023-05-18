@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Charts
 
-class WeatherView: UIView {
+final class WeatherView: UIView {
     var weatherLable = WeatherLocationLable()
     var weatherInfo =  WeatherInfoView()
     var weathetForcast = weatherForcastView()

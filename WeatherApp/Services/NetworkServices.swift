@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-class NetworkService: NerworkServicesProtocol {
+final class NetworkService: NerworkServicesProtocol {
     
     private enum Constants {
         static let url = "https://api.weather.yandex.ru/v2/forecast?lat=%f&lon=%f&lang=ru_RU&limit=1&hours=true&extra=true"

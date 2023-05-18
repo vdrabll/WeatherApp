@@ -5,7 +5,7 @@
 import Foundation
 import Charts
 
-class WeatherPresenter: WeatherPresenterProtocol {
+final class WeatherPresenter: WeatherPresenterProtocol {
     private let networkService: NetworkService
     
     init() {

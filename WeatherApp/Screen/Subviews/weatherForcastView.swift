@@ -9,11 +9,11 @@ import Foundation
 import Charts
 import UIKit
 
-class weatherForcastView: UIView, ChartViewDelegate {
+final class weatherForcastView: UIView, ChartViewDelegate {
     private enum Constants {
         static let smallSize: CGFloat = 20
         static let largeSize: CGFloat = 25
-        static let textFont = "Times New Roman"
+        static let textFont = "TimesNewRomanPSMT"
         static let sectionNameText = "Погода на сегодня"
         static  let sunsetTimeText =  "Время заката: "
         static  let sunriseTimeText =  "Время восхода: "

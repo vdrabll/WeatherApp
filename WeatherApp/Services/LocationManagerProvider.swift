@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-class LocationManagerProvider {
+final class LocationManagerProvider {
     private var locationManager: CLLocationManager?
     
     init(delegate: CLLocationManagerDelegate) {

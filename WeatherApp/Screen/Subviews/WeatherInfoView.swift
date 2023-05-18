@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-class WeatherInfoView: UIStackView {
+final class WeatherInfoView: UIStackView {
     
     private enum Constants {
-        static let font =  "Poppins-SemiBold"
+        static let font =  "TimesNewRomanPSMT"
         static let number = 2
         static let size: CGFloat = 15
         static let humidity = "Влаж. \n"
