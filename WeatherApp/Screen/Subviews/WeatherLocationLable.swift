@@ -47,7 +47,7 @@ private extension WeatherLocationLable {
         addSubview(locationName)
         addSubview(locationTempruture)
         
-        locationName.widthAnchor.constraint(equalToConstant: 190).isActive = true
+        locationName.widthAnchor.constraint(equalToConstant: 250).isActive = true
         locationName.heightAnchor.constraint(equalToConstant: 40).isActive = true
         locationName.topAnchor.constraint(equalTo: topAnchor).isActive = true
         locationName.leftAnchor.constraint(equalTo: leftAnchor).isActive = true

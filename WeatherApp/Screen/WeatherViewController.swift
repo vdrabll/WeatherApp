@@ -30,7 +30,6 @@ final class WeatherViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
     }
     
     private func addWeatherView(dto: ForcastDataDTO, entry: [BarChartDataEntry]) {
@@ -57,13 +56,16 @@ final class WeatherViewController: UIViewController {
 }
 
 extension WeatherViewController: CLLocationManagerDelegate {
-    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManagerDidPauseLocationUpdates(_ manager: CLLocationManager) {
+           presenter!.sendForcastData(complitionHandler: self.addWeatherView, location: Constants.defoultLocation)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if !locations.isEmpty {
             let location = Location(lat: locations[0].coordinate.latitude, lon: locations[0].coordinate.longitude)
-            presenter!.sendForcastData(complitionHandler: self.addWeatherView, location: location)}
-        else {
-            presenter!.sendForcastData(complitionHandler: self.addWeatherView, location: Constants.defoultLocation)
+            presenter!.sendForcastData(complitionHandler: self.addWeatherView, location: location)
         }
+       
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
